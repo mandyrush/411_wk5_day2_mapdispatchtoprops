@@ -31,7 +31,10 @@ class AddCar extends Component {
         delete payload.open
         console.log("THE CAR", payload)
         // add this.props.addCar function here
+        this.props.addCar(payload)
+        this.setState({ open: !this.state.open })
         // also add this.setState to close the dialog
+        this.setState({ open: false })
     }
 
     componentDidUpdate = (prevProps, prevState) => {
@@ -62,32 +65,32 @@ class AddCar extends Component {
                     <Dialog open={this.state.open} onClose={this.toggleDialog} >
                         <DialogTitle>Add New Car</DialogTitle>
                         <DialogContent>
-                            <form 
+                            <form
                                 onSubmit={this.handleSubmit}
                                 style={{ display: 'flex', flexDirection: 'column', width: '350px' }}>
-                                <TextField 
-                                    id="name" 
-                                    placeholder="Name" 
-                                    value={this.state.name} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="name"
+                                    placeholder="Name"
+                                    value={this.state.name}
+                                    onChange={this.handleTextChange}
                                     required />
-                                <TextField 
-                                    id="mpg" 
-                                    placeholder="Miles per gallon" 
-                                    value={this.state.mpg} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="mpg"
+                                    placeholder="Miles per gallon"
+                                    value={this.state.mpg}
+                                    onChange={this.handleTextChange}
                                     required />
-                                <TextField 
-                                    id="cylinders" 
-                                    placeholder="Cylinders" 
-                                    value={this.state.cylinders} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="cylinders"
+                                    placeholder="Cylinders"
+                                    value={this.state.cylinders}
+                                    onChange={this.handleTextChange}
                                     required />
-                                <TextField 
-                                    id="horsepower" 
-                                    placeholder="Horsepower" 
-                                    value={this.state.horsepower} 
-                                    onChange={this.handleTextChange} 
+                                <TextField
+                                    id="horsepower"
+                                    placeholder="Horsepower"
+                                    value={this.state.horsepower}
+                                    onChange={this.handleTextChange}
                                     required />
                                 <br />
                                 <Button variant="contained" color="primary" type="submit">Submit</Button>
